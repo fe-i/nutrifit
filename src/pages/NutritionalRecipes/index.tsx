@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { FC, PropsWithChildren, ReactNode } from "react";
+import { FC, PropsWithChildren, ReactNode, useState } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import {
@@ -27,8 +27,23 @@ import {
   Textarea,
   Image,
   chakra,
+  Card,
+  CardBody,
+  Heading,
+  ButtonGroup,
+  CardFooter,
+  Divider,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  Input
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import React from "react";
 
 const links = [
   { label: "Workout Plan", path: "/WorkoutPlan" },
@@ -64,7 +79,10 @@ const PageLink: FC<PropsWithChildren<{ label: string; path: string }>> = ({
       }}
     >
       {label}
+      
+      
     </Box>
+    
   );
 };
 export default function Simple() {
@@ -141,6 +159,107 @@ export default function Simple() {
       <Text mx={10} my={10} fontSize="50">
         Nutritional Recipes
       </Text>
+      
+
+      <Box ml={15} >
+      <Card maxW='sm' >
+  <CardBody >
+    <Image 
+      src='https://www.shape.com/thmb/rcoAEWTEu6i6zEvZKfU3DkcyA5c=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/800_SweetpotatoKaleShrimpskillet_PrimaveraKitchen-600px-e1573579470176-7d1a0934aa1145ccbc4e092e419c5e32.jpg'
+      alt='Sweet Potatoes, Kale, and Shrimp in a black bowl with a wooden spoon'
+      borderRadius='lg'
+    />
+    <Stack mt='6' spacing='4'>
+      <Heading size='md'>Sweet Potato, Kale, and Shrimp Skillet</Heading>
+      <Text>
+      This gluten-free recipe uses sweet potato, kale, and shrimp to make a quick high-protein weekday meal. Even better: It only uses one pan!
+      </Text>
+      <Text color='orange.600' fontSize='2xl' size = 'md'>
+        325 - 460 calories
+      </Text>
+    </Stack>
+  </CardBody>
+  <Divider />
+
+    <ButtonGroup spacing='2'>
+
+      <Button variant='solid' colorScheme='blue' onClick={onOpen}> {/*variant attribute can also hold ghost */}
+        View
+      </Button>
+     
+      <Drawer
+        isOpen={isOpen}
+        placement='right'
+        onClose={onClose}
+        size = "xl"
+        
+      >
+       
+        <DrawerOverlay />
+        <DrawerContent>
+        
+          <DrawerCloseButton />
+          <DrawerHeader>Sweet Potato, Kale, and Shrimp Skillet</DrawerHeader>
+                
+          <DrawerBody>
+          <h1 className="subtitle">
+                  Ingredients
+                  </h1>
+           <Button>
+           Add      
+           </Button>
+          </DrawerBody>
+
+         
+        </DrawerContent>
+      </Drawer>
+    </ButtonGroup>
+
+</Card>
+      </Box>
     </>
+    
+   
+
+      
+
+    
   );
+
+  function DrawerExample() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+   
+  
+    return (
+      <>
+        <Button colorScheme='teal' onClick={onOpen}>
+          Open
+        </Button>
+        <Drawer
+          isOpen={isOpen}
+          placement='right'
+          onClose={onClose}
+          
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Create your account</DrawerHeader>
+  
+            <DrawerBody>
+              <Input placeholder='Type here...' />
+            </DrawerBody>
+  
+            <DrawerFooter>
+              <Button variant='outline' mr={3} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme='blue'>Save</Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </>
+    )
+  }
+  
 }
