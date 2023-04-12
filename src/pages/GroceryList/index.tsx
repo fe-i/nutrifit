@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 import { FC, PropsWithChildren, ReactNode } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
@@ -27,6 +28,14 @@ import {
   Textarea,
   Image,
   chakra,
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+  SimpleGrid,
+  Checkbox,
+  CheckboxGroup,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -135,29 +144,9 @@ export default function Simple() {
         ) : null}
       </Box>
       <Text mx={10} my={10} fontSize="50">
-        NutriFit
+        Grocery List
       </Text>
-
-      <Text mx={10} my={10} fontSize="25">
-        NutriFit is a comprehensive health and wellness app designed to help
-        users achieve their fitness and nutrition goals. The app offers a range
-        of features and tools to help users track their meals, monitor their
-        daily calorie intake, and maintain a healthy lifestyle.
-        <br></br>
-        <br></br>
-        With NutriFit,users can create personalized meal plans based on their
-        individual dietary needs and preferences. The app includes a vast
-        database of recipes that users can choose from and customize to fit
-        their unique taste and nutrition requirements. Users can also track
-        their macronutrient and micronutrient intake, monitor their water
-        intake, and log their daily physical activity.
-        <br></br>
-        <br></br>
-        NutriFit also includes a feature that allows users to set and track
-        their fitness goals, such as weight loss or muscle gain. The app
-        provides personalized recommendations and insights to help users stay
-        motivated and on track.
-      </Text>
+      <Checkbox defaultChecked>Checkbox</Checkbox>
     </>
   );
 }
