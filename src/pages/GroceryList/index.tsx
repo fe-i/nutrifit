@@ -36,6 +36,8 @@ import {
   SimpleGrid,
   Checkbox,
   CheckboxGroup,
+  Input,
+  VStack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -76,8 +78,23 @@ const PageLink: FC<PropsWithChildren<{ label: string; path: string }>> = ({
     </Box>
   );
 };
+
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [items, setItems] = useState<string[]>([]);
+
+  const handleAddItem = (): void => {
+    const newItem = (
+      document.getElementById("newItemInput") as HTMLInputElement
+    ).value;
+    if (newItem) {
+      setItems((prevItems) => [...prevItems, newItem]);
+      (document.getElementById("newItemInput") as HTMLInputElement).value = "";
+    }
+  };
+  const handleClearList = () => {
+    setItems([]);
+  };
 
   return (
     <>
@@ -142,11 +159,26 @@ export default function Simple() {
             </Stack>
           </Box>
         ) : null}
-      </Box>
+      </Box>{" "}
       <Text mx={10} my={10} fontSize="50">
         Grocery List
       </Text>
-      <Checkbox defaultChecked>Checkbox</Checkbox>
+      <Box my={10} mx={10}>
+        <VStack spacing={4} align="start">
+          <Input id="newItemInput" placeholder="Type item here" />
+          <HStack>
+            <Button onClick={handleAddItem}>Add item</Button>
+            <Button onClick={handleClearList}>Clear List</Button>
+          </HStack>
+          <CheckboxGroup>
+            {items.map((item, index) => (
+              <Checkbox key={index} value={item}>
+                {item}
+              </Checkbox>
+            ))}
+          </CheckboxGroup>
+        </VStack>
+      </Box>
     </>
   );
 }

@@ -135,7 +135,7 @@ export default function Simple() {
         ) : null}
       </Box>
       <Text mx={10} my={10} fontSize="50">
-        Wokout Plan
+        Workout Plan
       </Text>
     </>
   );
