@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { FC, PropsWithChildren, ReactNode } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import React, { useState } from "react";
 import {
   Box,
   Text,
@@ -27,9 +28,30 @@ import {
   Textarea,
   Image,
   chakra,
+  TableContainer,
+  Table,
+  Tr,
+  Th,
+  Tbody,
+  TableCaption,
+  Thead,
+  Td,
+  Tfoot,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import axios from "axios";
 
+interface ModalProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+type Exercise = {
+  id: string;
+  name: string;
+  description: string;
+  muscle: string;
+};
 const links = [
   { label: "Workout Plan", path: "/WorkoutPlan" },
   { label: "Nutritional Recipes", path: "/NutritionalRecipes" },
@@ -69,6 +91,26 @@ const PageLink: FC<PropsWithChildren<{ label: string; path: string }>> = ({
 };
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [exercises, setExercises] = useState<Exercise[]>([]);
+  const [muscle, setMuscle] = useState<string>("");
+
+  const handleMuscleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMuscle(event.target.value);
+  };
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get<{ exercises: Exercise[] }>(
+        `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`,
+        {
+          headers: { "X-Api-Key": "YOUR_API_KEY" },
+        }
+      );
+      setExercises(response.data.exercises);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -86,7 +128,11 @@ export default function Simple() {
             alignItems={"center"}
             justifyContent={"space-evenly"}
           >
-            <Box>Logo</Box>
+            <Link href="/#">
+              <Box boxSize="50px">
+                <Image src="/logo-color.png" alt="Logo" borderRadius="full" />
+              </Box>
+            </Link>
 
             <HStack
               as={"nav"}
@@ -137,6 +183,22 @@ export default function Simple() {
       <Text mx={10} my={10} fontSize="50">
         Workout Plan
       </Text>
+      <div>
+        <label>
+          Muscle:
+          <input type="text" value={muscle} onChange={handleMuscleChange} />
+        </label>
+        <button onClick={handleSearch}>Search</button>
+        <ul>
+          {exercises.map((exercise) => (
+            <li key={exercise.id}>
+              <h2>{exercise.name}</h2>
+              <p>{exercise.description}</p>
+              <p>Muscle: {exercise.muscle}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

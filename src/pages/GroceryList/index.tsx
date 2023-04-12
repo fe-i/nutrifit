@@ -112,7 +112,11 @@ export default function Simple() {
             alignItems={"center"}
             justifyContent={"space-evenly"}
           >
-            <Box>Logo</Box>
+            <Link href="/#">
+              <Box boxSize="50px">
+                <Image src="/logo-color.png" alt="Logo" borderRadius="full" />
+              </Box>
+            </Link>
 
             <HStack
               as={"nav"}
