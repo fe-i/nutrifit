@@ -40,7 +40,10 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input
+  Input,
+  OrderedList,
+  ListItem,
+  UnorderedList
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
@@ -169,7 +172,7 @@ export default function Simple() {
       alt='Sweet Potatoes, Kale, and Shrimp in a black bowl with a wooden spoon'
       borderRadius='lg'
     />
-    <Stack mt='6' spacing='4'>
+    <Stack my='6' spacing='5'>
       <Heading size='md'>Sweet Potato, Kale, and Shrimp Skillet</Heading>
       <Text>
       This gluten-free recipe uses sweet potato, kale, and shrimp to make a quick high-protein weekday meal. Even better: It only uses one pan!
@@ -178,58 +181,52 @@ export default function Simple() {
         325 - 460 calories
       </Text>
     </Stack>
+    <Button variant='solid' colorScheme='orange' onClick={onOpen} > {/*variant attribute can also hold ghost */}
+  View
+</Button>
   </CardBody>
-  <Divider />
+  <ButtonGroup spacing='2'>
+<Drawer
+  isOpen={isOpen}
+  placement='right'
+  onClose={onClose}
+  size = "xl"
+   
+>
+  <DrawerOverlay />
+  <DrawerContent>
+  
+    <DrawerCloseButton />
+    <DrawerHeader fontSize="35">Sweet Potato, Kale, and Shrimp Skillet</DrawerHeader>
+          
+    <DrawerBody>
+      
+    <Text fontSize="35" pb={10}>
+      Ingredients:
+    </Text>
+    <UnorderedList fontSize="23"  ml={17}>
+      <ListItem>2 tablespoons extra virgin olive oil or ghee</ListItem>
+      <ListItem>½ cup onions diced</ListItem>
+      <ListItem>A pinch crushed red pepper to taste</ListItem>
+      <ListItem>2 cloves garlic minced</ListItem>
+    </UnorderedList>
+     <Button mt={12}>
+     Add Ingredients to Grocery List      
+     </Button>
+    </DrawerBody>
 
-    <ButtonGroup spacing='2'>
-
-      <Button variant='solid' colorScheme='blue' onClick={onOpen}> {/*variant attribute can also hold ghost */}
-        View
-      </Button>
-     
-      <Drawer
-        isOpen={isOpen}
-        placement='right'
-        onClose={onClose}
-        size = "xl"
-        
-      >
-       
-        <DrawerOverlay />
-        <DrawerContent>
-        
-          <DrawerCloseButton />
-          <DrawerHeader>Sweet Potato, Kale, and Shrimp Skillet</DrawerHeader>
-                
-          <DrawerBody>
-          <h1 className="subtitle">
-                  Ingredients
-                  </h1>
-           <Button>
-           Add      
-           </Button>
-          </DrawerBody>
-
-         
-        </DrawerContent>
-      </Drawer>
-    </ButtonGroup>
-
+   
+  </DrawerContent>
+</Drawer>
+</ButtonGroup>
 </Card>
       </Box>
     </>
-    
-   
-
-      
-
-    
   );
 
   function DrawerExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
    
-  
     return (
       <>
         <Button colorScheme='teal' onClick={onOpen}>
