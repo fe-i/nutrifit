@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
 	return (
 		<>
-			<Box className="wrapper">
+			
 				<Modal isOpen={isOpen} onClose={onClose} size="xl">
 					<ModalOverlay />
 
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
 						</ModalFooter>
 					</ModalContent>
 				</Modal>
-			</Box>
+			
 
 			<Layout title="Home">
 				<Flex flexDir="column" align="center" justify="center" px={{ base: 2, md: 16 }}>
@@ -117,16 +117,7 @@ const Home: NextPage = () => {
 				</Flex>
 			</Layout>
 
-			<Box className="objects">
-				<ul className="box">
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-			</Box>
+			
 		</>
 	);
 };

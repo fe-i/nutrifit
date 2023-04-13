@@ -458,7 +458,7 @@ const Recipes: NextPage = () => {
 							<DrawerContent>
 								<DrawerCloseButton />
 								<DrawerHeader mt="-2" fontSize="35" my="-3">
-									Copycat Qdoba Chicken*
+									Copycat Qdoba Chicken
 								</DrawerHeader>
 
 								<DrawerBody>
@@ -467,16 +467,13 @@ const Recipes: NextPage = () => {
 									</Text>
 
 									<UnorderedList fontSize="18" ml={19}>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
-										<ListItem></ListItem>
+										<ListItem>2 lbs boneless skinless chicken tenderloins</ListItem>
+										<ListItem>2 cloves garlic minced</ListItem>
+										<ListItem>2 tablespoons olive oil</ListItem>
+										<ListItem>2 tablespoons adobo sauce from a small can of chipotle peppers</ListItem>
+										<ListItem>½ teaspoon oregano or Italian seasoning</ListItem>
+										<ListItem>1 teaspoon salt</ListItem>
+										<ListItem>½ teaspoon black pepper</ListItem>
 									</UnorderedList>
 
 									<Button mt={5}>Add Ingredients to Grocery List</Button>
