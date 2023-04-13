@@ -1,21 +1,19 @@
 {
-    "foods": [
-      {
-        "name": "Sweet Potato, Kale, and Shrimp Skillet",
-        "protein": 32,
-        "carbs": 18,
-        "fat": 8,
-        "calories": 460,
-        "ig1": "2 tablespoons extra virgin olive oil or ghee",
-        "ig2": "½ cup onions diced",
-        "ig3": "A pinch crushed red pepper to taste",
-        "ig4": "2 cloves garlic minced",
-        "ig5": "2 cups sweet potatoes diced",
-        "ig6": "2 cups shrimp peeled, deveined, and thawed if frozen",
-        "ig7": "3 cups trimmed and coarsely chopped kale leaves",
-        "ig8": "Salt and ground black pepper"
-      }
-    ]
+	"foods": [
+		{
+			"name": "Sweet Potato, Kale, and Shrimp Skillet",
+			"protein": 32,
+			"carbs": 18,
+			"fat": 8,
+			"calories": 460,
+			"ig1": "2 tablespoons extra virgin olive oil or ghee",
+			"ig2": "½ cup onions diced",
+			"ig3": "A pinch crushed red pepper to taste",
+			"ig4": "2 cloves garlic minced",
+			"ig5": "2 cups sweet potatoes diced",
+			"ig6": "2 cups shrimp peeled, deveined, and thawed if frozen",
+			"ig7": "3 cups trimmed and coarsely chopped kale leaves",
+			"ig8": "Salt and ground black pepper"
+		}
+	]
 }
-     
-  
