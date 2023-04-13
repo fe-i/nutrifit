@@ -450,15 +450,15 @@ const Recipes: NextPage = () => {
 					</CardBody>
 					<ButtonGroup spacing="2">
 						<Drawer
-							isOpen={item3isOpen}
+							isOpen={item4isOpen}
 							placement="right"
-							onClose={item3onClose}
+							onClose={item4onClose}
 							size="md">
 							<DrawerOverlay />
 							<DrawerContent>
 								<DrawerCloseButton />
 								<DrawerHeader mt="-2" fontSize="35" my="-3">
-									Make-Ahead Breakfast Burritos
+									Copycat Qdoba Chicken*
 								</DrawerHeader>
 
 								<DrawerBody>
@@ -467,18 +467,16 @@ const Recipes: NextPage = () => {
 									</Text>
 
 									<UnorderedList fontSize="18" ml={19}>
-										<ListItem>2 lbs boneless skinless chicken thighs</ListItem>
-										<ListItem>2 tbsp olive oil</ListItem>
-										<ListItem>1 tbsp tomato paste</ListItem>
-										<ListItem>
-											1 tbsp apple cider vinegar, sub lime juice
-										</ListItem>
-										<ListItem>¾ tsp oregano</ListItem>
-										<ListItem>1 tsp chipotle powder</ListItem>
-										<ListItem>1 tsp cumin</ListItem>
-										<ListItem>3 cloves garlic, minced</ListItem>
-										<ListItem>1 tbsp chili powder</ListItem>
-										<ListItem>Salt and pepper, for taste</ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
+										<ListItem></ListItem>
 									</UnorderedList>
 
 									<Button mt={5}>Add Ingredients to Grocery List</Button>
@@ -511,7 +509,7 @@ const Recipes: NextPage = () => {
 								290 - 350 calories
 							</Text>
 						</Stack>
-						<Button ml="7" variant="solid" colorScheme="red" onClick={item4onOpen}>
+						<Button ml="7" variant="solid" colorScheme="red" onClick={item5onOpen}>
 							{" "}
 							{/*variant attribute can also hold ghost */}
 							View Recipe
@@ -591,6 +589,127 @@ const Recipes: NextPage = () => {
 										<ListItem>
 											½ cup Cheddar Cheese freshly shredded, (30 grams)
 										</ListItem>
+										<ListItem>1 cup Chickpea Rice (100 grams)</ListItem>
+										<ListItem>1 tsp Red Pepper Flake</ListItem>
+										<ListItem>
+											1 tbsp Scallions sliced, optional. (about stalk) or (10
+											grams)
+										</ListItem>
+									</UnorderedList>
+
+									<Button mt={5}>Add Ingredients to Grocery List</Button>
+									<br></br>
+									<br></br>
+								</DrawerBody>
+							</DrawerContent>
+						</Drawer>
+					</ButtonGroup>
+				</Card>
+
+				{/*Baked Orange Chicken Meatballs*/}
+				<Card maxW="sm" height={600}>
+					<CardBody>
+						<Image
+							src="https://www.justataste.com/wp-content/uploads/2013/07/baked-orange-chicken-meatballs-recipe.jpg"
+							alt="Zucchini & Ground Beef Orzo Casserole"
+							borderRadius="lg"
+							width="300"
+							height="230"
+						/>
+						<Stack my="6" spacing="2">
+							<Heading size="md">Baked Orange Chicken Meatballs</Heading>
+							<Text>
+								These fast, lean meatballs come with a Chinese takeout twist.
+								Swapping chicken for fattier meats and baking them in an oven makes
+								for a healthy alternative. While they bake, whip up the orange
+								marmalade glaze!
+							</Text>
+							<Text ml="8" color="red.300" fontSize="2xl" size="md">
+								1200 - 1450 calories
+							</Text>
+						</Stack>
+						<Button ml="7" variant="solid" colorScheme="red" onClick={item6onOpen}>
+							{" "}
+							{/*variant attribute can also hold ghost */}
+							View Recipe
+						</Button>
+
+						<Popover>
+							<PopoverTrigger>
+								<Button ml="7">View Macros</Button>
+							</PopoverTrigger>
+							<PopoverContent>
+								<PopoverArrow />
+								<PopoverCloseButton />
+								<PopoverHeader>
+									<strong>Macro Chart</strong>
+								</PopoverHeader>
+								<PopoverBody>
+									<Text>
+										{" "}
+										Carbs - 58g
+										<Stack spacing={5}>
+											<Progress colorScheme="blue" size="md" value={38} />
+										</Stack>
+									</Text>
+									<br></br>
+									<Text>
+										{" "}
+										Protein - 50g
+										<Stack spacing={5}>
+											<Progress colorScheme="red" size="md" value={32} />
+										</Stack>
+									</Text>
+									<br></br>
+									<Text>
+										{" "}
+										Fat - 45g
+										<Stack spacing={5}>
+											<Progress colorScheme="yellow" size="md" value={29} />
+										</Stack>
+									</Text>
+								</PopoverBody>
+							</PopoverContent>
+						</Popover>
+					</CardBody>
+					<ButtonGroup spacing="2">
+						<Drawer
+							isOpen={item6isOpen}
+							placement="right"
+							onClose={item6onClose}
+							size="md">
+							<DrawerOverlay />
+							<DrawerContent>
+								<DrawerCloseButton />
+								<DrawerHeader mt="-2" fontSize="35" my="-3">
+									Zucchini & Ground Beef Orzo Casserole
+								</DrawerHeader>
+
+								<DrawerBody>
+									<Text fontSize="30" pb={2}>
+										Ingredients:{" "}
+									</Text>
+
+									<UnorderedList fontSize="18" ml={19}>
+										<ListItem>1/4 cup milk</ListItem>
+										<ListItem>1/4 cup Panko breadcrumbs</ListItem>
+										<ListItem>1 1/2 lbs ground chicken</ListItem>
+										<ListItem>2 cloves garlic, minced</ListItem>
+										<ListItem>2 teaspoons minced fresh ginger</ListItem>
+										<ListItem>2 Tablespoons minced scallions</ListItem>
+										<ListItem>2 Tablespoons low sodium soy sauce</ListItem>
+										<ListItem>1/4 teaspoon salt</ListItem>
+										<ListItem>1/4 teaspoon black pepper</ListItem>
+										<ListItem>1 1/2 teaspoons sesame oil</ListItem>
+										<ListItem>1 1/2 teaspoons olive oil</ListItem>
+										<ListItem>2 cloves garlic, minced</ListItem>
+										<ListItem>1 teaspoon minced fresh ginger</ListItem>
+										<ListItem>
+											1 1/2 teaspoons crushed red pepper flakes, or more to
+											taste
+										</ListItem>
+										<ListItem>3/4 cup orange marmalade</ListItem>
+										<ListItem>1/4 cup hoisin sauce</ListItem>
 									</UnorderedList>
 
 									<Button mt={5}>Add Ingredients to Grocery List</Button>
