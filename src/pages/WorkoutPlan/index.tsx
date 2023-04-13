@@ -6,11 +6,6 @@ import React, { useState } from "react";
 import {
   Box,
   Text,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
   Flex,
   Avatar,
   HStack,
@@ -25,18 +20,9 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
-  Textarea,
   Image,
   chakra,
-  TableContainer,
-  Table,
-  Tr,
-  Th,
-  Tbody,
-  TableCaption,
-  Thead,
-  Td,
-  Tfoot,
+
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -103,7 +89,7 @@ export default function Simple() {
       const response = await axios.get<{ exercises: Exercise[] }>(
         `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`,
         {
-          headers: { "X-Api-Key": "YOUR_API_KEY" },
+          headers: { "u+g8Vo3iRf9v8UCQhxd7sg==H8nzlSDhBrOc8Udw": "YOUR_API_KEY" },
         }
       );
       setExercises(response.data.exercises);
@@ -183,22 +169,17 @@ export default function Simple() {
       <Text mx={10} my={10} fontSize="50">
         Workout Plan
       </Text>
-      <div>
-        <label>
-          Muscle:
-          <input type="text" value={muscle} onChange={handleMuscleChange} />
-        </label>
-        <button onClick={handleSearch}>Search</button>
-        <ul>
-          {exercises.map((exercise) => (
-            <li key={exercise.id}>
-              <h2>{exercise.name}</h2>
-              <p>{exercise.description}</p>
-              <p>Muscle: {exercise.muscle}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
+      <Box>
+      {exercises.map((exercise) => (
+        <Text key={exercise.id}>{exercise.name}</Text>
+      ))}
+    </Box>
     </>
   );
+}
+export async function getServerSideProps() {
+  const response = await fetch("https://api.api-ninjas.com/v1/exercises");
+  const exercises = await response.json();
+  return { props: { exercises } };
 }

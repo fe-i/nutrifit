@@ -43,7 +43,17 @@ import {
   Input,
   OrderedList,
   ListItem,
-  UnorderedList
+  UnorderedList,
+  CircularProgress, 
+  CircularProgressLabel,
+  Progress, 
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
@@ -177,86 +187,118 @@ export default function Simple() {
       <Text>
       This gluten-free recipe uses sweet potato, kale, and shrimp to make a quick high-protein weekday meal. Even better: It only uses one pan!
       </Text>
-      <Text color='orange.600' fontSize='2xl' size = 'md'>
+      <Text ml='8' color='orange.600' fontSize='2xl' size = 'md'>
         325 - 460 calories
       </Text>
     </Stack>
-    <Button variant='solid' colorScheme='orange' onClick={onOpen} > {/*variant attribute can also hold ghost */}
-  View
+    <Button ml='7'variant='solid' colorScheme='orange' onClick={onOpen} > {/*variant attribute can also hold ghost */}
+             View Recipe            
 </Button>
+
+<Popover>
+  <PopoverTrigger>
+    <Button ml='7' >View Macros</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverArrow />
+    <PopoverCloseButton />
+    <PopoverHeader><strong>Macro Chart</strong></PopoverHeader>
+      <PopoverBody>
+      <Text> Carbs - 18g
+      <Stack spacing={5}>
+          <Progress colorScheme='blue' size='md' value={6} />
+      </Stack>
+      </Text>
+      <br></br>
+      <Text> Protein - 32g
+      <Stack spacing={5}>
+          <Progress colorScheme='red' size='md' value={64} />
+      </Stack>
+      </Text>
+      <br></br>
+      <Text> Fat - 8g
+      <Stack spacing={5}>
+          <Progress colorScheme='yellow' size='md' value={12} />
+      </Stack>
+      </Text>        
+
+      </PopoverBody>
+  </PopoverContent>
+</Popover>
+
   </CardBody>
   <ButtonGroup spacing='2'>
 <Drawer
   isOpen={isOpen}
   placement='right'
   onClose={onClose}
-  size = "xl"
+  size = "md"
    
 >
   <DrawerOverlay />
   <DrawerContent>
   
     <DrawerCloseButton />
-    <DrawerHeader fontSize="35">Sweet Potato, Kale, and Shrimp Skillet</DrawerHeader>
+    <DrawerHeader mt='-2'fontSize="35" my='-3'>Sweet Potato, Kale, and Shrimp Skillet</DrawerHeader>
           
     <DrawerBody>
       
-    <Text fontSize="35" pb={10}>
-      Ingredients:
-    </Text>
-    <UnorderedList fontSize="23"  ml={17}>
+    <Text fontSize="30" pb={2} >
+      Ingredients: </Text>
+    
+    <UnorderedList fontSize="18"  ml={19}>
       <ListItem>2 tablespoons extra virgin olive oil or ghee</ListItem>
       <ListItem>½ cup onions diced</ListItem>
       <ListItem>A pinch crushed red pepper to taste</ListItem>
       <ListItem>2 cloves garlic minced</ListItem>
+      <ListItem>2 cups sweet potatoes diced</ListItem>
+      <ListItem>2 cups shrimp peeled, deveined, and thawed if frozen</ListItem>
+      <ListItem>3 cups trimmed and coarsely chopped kale leaves</ListItem>
+      <ListItem>Salt and ground black pepper</ListItem>
     </UnorderedList>
-     <Button mt={12}>
+
+     <Button mt={5}>
      Add Ingredients to Grocery List      
      </Button>
+     <br></br>
+     <br></br>
+     
     </DrawerBody>
 
-   
   </DrawerContent>
 </Drawer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ButtonGroup>
 </Card>
       </Box>
     </>
   );
-
-  function DrawerExample() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-   
-    return (
-      <>
-        <Button colorScheme='teal' onClick={onOpen}>
-          Open
-        </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement='right'
-          onClose={onClose}
-          
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
-  
-            <DrawerBody>
-              <Input placeholder='Type here...' />
-            </DrawerBody>
-  
-            <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme='blue'>Save</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    )
-  }
-  
 }
