@@ -1,21 +1,40 @@
 import type { NextPage } from "next";
 import Layout from "@/components/layout";
-import { useState } from "react";
-import { Text, Flex, Button, Checkbox, CheckboxGroup, Input } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import {
+	Text,
+	Flex,
+	Button,
+	Checkbox,
+	CheckboxGroup,
+	Input,
+	textDecoration
+} from "@chakra-ui/react";
 
 const GroceryList: NextPage = () => {
-	const [items, setItems] = useState(new Array());
+	const [groceries, setGroceries] = useState(new Array());
+
+	useEffect(() => {
+		const items = JSON.parse(localStorage.getItem("groceries")); //ignire this error ok
+		if (items) {
+			setGroceries(items);
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("groceries", JSON.stringify(groceries));
+	}, [groceries]);
 
 	const handleAddItem = (): void => {
 		const newItem = (document.getElementById("newItemInput") as HTMLInputElement).value;
 		if (newItem) {
-			setItems((prevItems) => [...prevItems, newItem]);
+			setGroceries((prevItems: any) => [...prevItems, newItem]);
 			(document.getElementById("newItemInput") as HTMLInputElement).value = "";
 		}
 	};
 
 	const handleClearList = () => {
-		setItems([]);
+		setGroceries([]);
 	};
 
 	return (
@@ -27,14 +46,12 @@ const GroceryList: NextPage = () => {
 				<Flex flexDir="column" minW={{ base: "xs", md: "lg" }} gap={5}>
 					<Input id="newItemInput" placeholder="Type item here" />
 					<Flex flexDir="row" align="center" justify="center" gap={10}>
-						<Button onClick={handleAddItem}>Add item</Button>
+						<Button onClick={handleAddItem}>Add Item</Button>
 						<Button onClick={handleClearList}>Clear List</Button>
 					</Flex>
 					<CheckboxGroup>
-						{items.map((item, index) => (
-							<Checkbox key={index} value={item}>
-								{item}
-							</Checkbox>
+						{groceries.map((grocery, index) => (
+							<Checkbox key={index}>{grocery}</Checkbox>
 						))}
 					</CheckboxGroup>
 				</Flex>

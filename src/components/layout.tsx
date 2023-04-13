@@ -8,9 +8,7 @@ const Layout: FC<PropsWithChildren<{ title?: string }>> = ({ title, children }) 
 		<>
 			<Metadata title={title} />
 			<Header />
-			<Box mt={18} px={{ base: 6, sm: 18 }} pb={10}>
-				{children}
-			</Box>
+			<Box pb={10}>{children}</Box>
 		</>
 	);
 };

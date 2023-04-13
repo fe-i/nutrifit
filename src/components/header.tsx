@@ -1,20 +1,5 @@
 import type { FC, PropsWithChildren } from "react";
-import {
-	Stack,
-	Box,
-	IconButton,
-	Image,
-	useDisclosure,
-	Flex,
-	useColorModeValue,
-	Menu,
-	MenuButton,
-	Avatar,
-	MenuList,
-	MenuItem,
-	MenuDivider,
-	Button
-} from "@chakra-ui/react";
+import { Stack, Box, IconButton, Image, useDisclosure, Flex, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
@@ -35,10 +20,9 @@ const PageLink: FC<PropsWithChildren<{ label: string; path: string }>> = ({ labe
 			py={{ base: 2, md: 1 }}
 			rounded="xl"
 			fontWeight={router.pathname === path ? "semibold" : "normal"}
-			bgColor={router.pathname === path ? "red.200" : "none"}
 			href={path}
 			_hover={{
-				bg: router.pathname !== path && "gray.200"
+				fontWeight: router.pathname !== path && "bold"
 			}}>
 			{label}
 		</Box>
