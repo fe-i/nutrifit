@@ -12,12 +12,15 @@ import {
 } from "@chakra-ui/react";
 
 const GroceryList: NextPage = () => {
-	const [groceries, setGroceries] = useState(new Array());
+	const [groceries, setGroceries] = useState<string[]>(new Array());
 
 	useEffect(() => {
-		const items = JSON.parse(localStorage.getItem("groceries")); //ignire this error ok
-		if (items) {
-			setGroceries(items);
+		const g = localStorage.getItem("groceries");
+		if (g) {
+			const items = JSON.parse(g);
+			if (items) {
+				setGroceries(items);
+			}
 		}
 	}, []);
 
