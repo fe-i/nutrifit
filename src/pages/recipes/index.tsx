@@ -27,7 +27,6 @@ import {
 	PopoverHeader,
 	PopoverTrigger
 } from "@chakra-ui/react";
-
 import Layout from "@/components/layout";
 
 const Recipes: NextPage = () => {
@@ -149,9 +148,12 @@ const Recipes: NextPage = () => {
 										<ListItem>Salt and ground black pepper</ListItem>
 									</UnorderedList>
 
-									<Button mt={5}>Add Ingredients to Grocery List</Button>
 									<br></br>
 									<br></br>
+
+									<Text fontSize="30" pb={2}>
+										Directions:{" "}
+									</Text>
 								</DrawerBody>
 							</DrawerContent>
 						</Drawer>
@@ -262,7 +264,6 @@ const Recipes: NextPage = () => {
 										</ListItem>
 									</UnorderedList>
 
-									<Button mt={5}>Add Ingredients to Grocery List</Button>
 									<br></br>
 									<br></br>
 								</DrawerBody>
@@ -367,7 +368,6 @@ const Recipes: NextPage = () => {
 										</ListItem>
 									</UnorderedList>
 
-									<Button mt={5}>Add Ingredients to Grocery List</Button>
 									<br></br>
 									<br></br>
 								</DrawerBody>
@@ -467,16 +467,20 @@ const Recipes: NextPage = () => {
 									</Text>
 
 									<UnorderedList fontSize="18" ml={19}>
-										<ListItem>2 lbs boneless skinless chicken tenderloins</ListItem>
+										<ListItem>
+											2 lbs boneless skinless chicken tenderloins
+										</ListItem>
 										<ListItem>2 cloves garlic minced</ListItem>
 										<ListItem>2 tablespoons olive oil</ListItem>
-										<ListItem>2 tablespoons adobo sauce from a small can of chipotle peppers</ListItem>
+										<ListItem>
+											2 tablespoons adobo sauce from a small can of chipotle
+											peppers
+										</ListItem>
 										<ListItem>½ teaspoon oregano or Italian seasoning</ListItem>
 										<ListItem>1 teaspoon salt</ListItem>
 										<ListItem>½ teaspoon black pepper</ListItem>
 									</UnorderedList>
 
-									<Button mt={5}>Add Ingredients to Grocery List</Button>
 									<br></br>
 									<br></br>
 								</DrawerBody>
@@ -594,7 +598,6 @@ const Recipes: NextPage = () => {
 										</ListItem>
 									</UnorderedList>
 
-									<Button mt={5}>Add Ingredients to Grocery List</Button>
 									<br></br>
 									<br></br>
 								</DrawerBody>
@@ -608,7 +611,7 @@ const Recipes: NextPage = () => {
 					<CardBody>
 						<Image
 							src="https://www.justataste.com/wp-content/uploads/2013/07/baked-orange-chicken-meatballs-recipe.jpg"
-							alt="Zucchini & Ground Beef Orzo Casserole"
+							alt="Baked Orange Chicken Meatballs"
 							borderRadius="lg"
 							width="300"
 							height="230"
@@ -679,7 +682,7 @@ const Recipes: NextPage = () => {
 							<DrawerContent>
 								<DrawerCloseButton />
 								<DrawerHeader mt="-2" fontSize="35" my="-3">
-									Zucchini & Ground Beef Orzo Casserole
+									Baked Orange Chicken Meatballs{" "}
 								</DrawerHeader>
 
 								<DrawerBody>
@@ -709,7 +712,6 @@ const Recipes: NextPage = () => {
 										<ListItem>1/4 cup hoisin sauce</ListItem>
 									</UnorderedList>
 
-									<Button mt={5}>Add Ingredients to Grocery List</Button>
 									<br></br>
 									<br></br>
 								</DrawerBody>

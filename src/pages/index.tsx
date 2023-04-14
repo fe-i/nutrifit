@@ -23,50 +23,42 @@ const Home: NextPage = () => {
 
 	return (
 		<>
-			
-				<Modal isOpen={isOpen} onClose={onClose} size="xl">
-					<ModalOverlay />
+			<Modal isOpen={isOpen} onClose={onClose} size="xl">
+				<ModalOverlay />
 
-					<ModalContent>
-						<ModalHeader>
-							<Heading textDecor="underline">About Us</Heading>
-						</ModalHeader>
-						<ModalBody>
-							<Text fontSize="lg">
-								NutriFit is a comprehensive health and wellness app designed to help
-								users achieve their fitness and nutrition goals. The app offers a
-								range of features and tools to help users track their meals, monitor
-								their daily calorie intake, and maintain a healthy lifestyle.
-								<br />
-								<br />
-								With NutriFit, users can create personalized meal plans based on
-								their individual dietary needs and preferences. The app includes a
-								vast database of recipes that users can choose from and customize to
-								fit their unique taste and nutrition requirements. Users can also
-								track their macronutrient and micronutrient intake, monitor their
-								water intake, and log their daily physical activity.
-								<br />
-								<br />
-								NutriFit also includes a feature that allows users to set and track
-								their fitness goals, such as weight loss or muscle gain. The app
-								provides personalized recommendations and insights to help users
-								stay motivated and on track.
-							</Text>
-						</ModalBody>
-						<ModalFooter>
-							<Button
-								bg="red.300"
-								textColor="white"
-								mr={4}
-								mb={4}
-								_hover={{ bg: "red.400" }}
-								onClick={onClose}>
-								Close
-							</Button>
-						</ModalFooter>
-					</ModalContent>
-				</Modal>
-			
+				<ModalContent>
+					<ModalHeader>
+						<Heading textDecor="underline">About Us</Heading>
+					</ModalHeader>
+					<ModalBody>
+						<Text fontSize="lg">
+							NutriFit is a comprehensive health and wellness app designed to help
+							users achieve their fitness and nutrition goals. The app offers a range
+							of features and tools to help users track their meals, monitor their
+							daily calorie intake, and maintain a healthy lifestyle.
+							<br />
+							<br />
+							With NutriFit, users can create personalized meal plans based on their
+							individual dietary needs and preferences. The app includes a vast
+							database of recipes that users can choose from and customize to fit
+							their unique taste and nutrition requirements. Users can also track
+							their macronutrient and micronutrient intake, monitor their water
+							intake, and log their daily physical activity.
+						</Text>
+					</ModalBody>
+					<ModalFooter>
+						<Button
+							bg="red.300"
+							textColor="white"
+							mr={4}
+							mb={4}
+							_hover={{ bg: "red.400" }}
+							onClick={onClose}>
+							Close
+						</Button>
+					</ModalFooter>
+				</ModalContent>
+			</Modal>
 
 			<Layout title="Home">
 				<Flex flexDir="column" align="center" justify="center" px={{ base: 2, md: 16 }}>
@@ -116,8 +108,6 @@ const Home: NextPage = () => {
 					</Container>
 				</Flex>
 			</Layout>
-
-			
 		</>
 	);
 };
