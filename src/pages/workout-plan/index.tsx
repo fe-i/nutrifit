@@ -19,8 +19,40 @@ import {
   CheckboxGroup
 } from "@chakra-ui/react";
 
+
 import Layout from "@/components/layout";
+import { useEffect, useState } from "react";
+
+
+
 const WorkoutPlan: NextPage = () => {
+  const [exercises, setExercise] = useState<string[]>(new Array());
+  //add to screen
+  useEffect(() => {
+		const g = localStorage.getItem("exercises");
+		if (g) {
+			const items = JSON.parse(g);
+			if (items) {
+				setExercise(items);
+			}
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("exercises", JSON.stringify(exercises));
+	}, [exercises]);
+
+	const handleAddItem = (): void => {
+		const newItem = (document.getElementById("newItemInput") as HTMLInputElement).value;
+		if (newItem) {
+			setExercise((prevItems: any) => [...prevItems, newItem]);
+			(document.getElementById("newItemInput") as HTMLInputElement).value = "";
+		}
+	};
+
+	const handleClearList = () => {
+		setExercise([]);
+	};
   const {
     isOpen: item1isOpen,
     onOpen: item1onOpen,
@@ -39,6 +71,8 @@ const WorkoutPlan: NextPage = () => {
 
   return (
     <Layout title="Workout Plan">
+     
+
       <Text my={8} fontSize="5xl" textAlign="center">
         <strong>Workout Splits</strong>
       </Text>
@@ -63,7 +97,7 @@ const WorkoutPlan: NextPage = () => {
                 core, and legs as stabilizers.
               </Text>
             </Stack>
-            <Button
+            <Button 
               style={{ margin: "0 auto" }}
               variant="solid"
               colorScheme="red"
@@ -81,15 +115,95 @@ const WorkoutPlan: NextPage = () => {
               </ModalHeader>
               <ModalBody>
                 <Text py="5">
-                  <Checkbox defaultChecked>Barbell/Dumbbell Bench Press</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Incline Barbell/Dumbbell Bench Press</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Tricep Extensions/Pushdowns</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Dips</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Push Up</Checkbox>
+                  <Flex>
+                    <Button variant="solid" 
+                    onClick={handleAddItem}
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Barbell/Dumbbell Bench Press
+                  </Text>
+                  </Flex>
+
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid" 
+                    onClick={handleAddItem}
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text px ="3">
+                  Incline Barbell/Dumbbell Bench Press
+                  </Text>
+                  </Flex>
+
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid"
+                    onClick={handleAddItem}
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Tricep Extensions/Pushdowns
+                  </Text>
+                  </Flex>
+                  <br></br>
+
+
+                  <Flex>
+                    <Button variant="solid"
+                    onClick={handleAddItem}
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Dips
+                  </Text>
+                  </Flex>
+
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid"
+                    onClick={handleAddItem}
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Push Up
+                  </Text>
+                  </Flex>
                 </Text>
               </ModalBody>
               <ModalFooter>
@@ -135,15 +249,91 @@ const WorkoutPlan: NextPage = () => {
               </ModalHeader>
               <ModalBody>
                 <Text py="5">
-                <Checkbox defaultChecked>Deadlift</Checkbox>
-                <br /><br />
-                  <Checkbox defaultChecked>Pull/Chin Ups</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Lat-Pull Down</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Rows</Checkbox>
-                  <br /><br />
-                  <Checkbox defaultChecked>Bicep Curl</Checkbox>
+
+                <Flex>
+                    <Button variant="solid"
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Deadlift
+                  </Text>
+                  </Flex>
+
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid"
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Pull/Chin Ups
+                  </Text>
+                  </Flex>
+
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid"
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Lat-Pull Down
+                  </Text>
+                  </Flex>
+                  <br></br>
+
+
+                  <Flex>
+                    <Button variant="solid" 
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Rows
+                  </Text>
+                  </Flex>
+                  
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid" 
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Bicep Curl
+                  </Text>
+                  </Flex>
                 </Text>
               </ModalBody>
               <ModalFooter>
@@ -176,7 +366,6 @@ const WorkoutPlan: NextPage = () => {
               involve multiple joints and muscle groups, and isolation exercises, which target
               specific muscles. Some common leg exercises include squats, lunges, deadlifts,
               leg press, and calf raises.
-
               </Text>
             </Stack>
             <Button variant="solid" colorScheme="red" onClick={item3onOpen}>
@@ -185,22 +374,94 @@ const WorkoutPlan: NextPage = () => {
           </CardBody>
           <Modal isOpen={item3isOpen} onClose={item3onClose} size="xl">
             <ModalOverlay />
-
             <ModalContent>
               <ModalHeader>
                 <Heading>Exercises</Heading>
               </ModalHeader>
               <ModalBody>
                <Text py="5">
-                  <Checkbox defaultChecked>Barbell/Hack Squat </Checkbox>
-                  <br /><br />
-                    <Checkbox defaultChecked>Leg Press</Checkbox>
-                    <br /><br />
-                    <Checkbox defaultChecked>Leg Curl</Checkbox>
-                    <br /><br />
-                    <Checkbox defaultChecked>Leg Extension</Checkbox>
-                    <br /><br />
-                    <Checkbox defaultChecked>Calf Raises</Checkbox>
+               <Flex>
+                    <Button variant="solid"
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                    </Button>
+                  <Text  px ="3">
+                  Barbell/Hack Squat
+                  </Text>
+                  </Flex>
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid" 
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                    </Button>
+                  <Text  px ="3">
+                  Leg Press
+                  </Text>
+                  </Flex>
+                  <br></br>
+                  <Flex>
+                    <Button variant="solid"
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Leg Curl
+                  </Text>
+                  </Flex>
+                  <br></br>
+
+
+                  <Flex>
+                  <Button variant="solid" 
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Leg Extension
+                  </Text>
+                  </Flex>
+                  
+                  <br></br>
+                  <Flex>
+                  <Button variant="solid"
+                      width = {0}
+                      height={7}>
+                        <strong>
+                        <Text mt='-1'>
+                          +
+                        </Text>
+                        </strong>
+                        
+                    </Button>
+                  <Text  px ="3">
+                  Calf Raises
+                  </Text>
+                  </Flex>
+                  
+                  
+                
                   </Text>
               </ModalBody>
               <ModalFooter>
@@ -218,6 +479,11 @@ const WorkoutPlan: NextPage = () => {
             </ModalContent>
           </Modal>
         </Card>
+         <CheckboxGroup>
+						{exercises.map((exercise, index) => (
+							<Checkbox key={index}>{exercise}</Checkbox>
+						))}
+			</CheckboxGroup>
       </Flex>
     </Layout>
   );
