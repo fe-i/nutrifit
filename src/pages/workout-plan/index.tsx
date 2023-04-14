@@ -15,6 +15,8 @@ import {
   CardBody,
   Heading,
   Center,
+  Checkbox,
+  CheckboxGroup
 } from "@chakra-ui/react";
 
 import Layout from "@/components/layout";
@@ -47,20 +49,18 @@ const WorkoutPlan: NextPage = () => {
         gap={10}
         m="6"
       >
-        {/*Upper Lower */}
+        {/*Push*/}
         <Card maxW="sm" height={500}>
           <CardBody textAlign="center">
             <Stack my="6" spacing="2" justifyContent="center">
               <Heading textAlign="center" size="md">
-                Upper/Lower
+                Push
               </Heading>
               <Text textAlign="center">
-                This workout split involves dividing your training into two main
-                sessions: upper body and lower body. Typically, you would train
-                your upper body (chest, back, shoulders, and arms) on one day
-                and your lower body (legs, glutes, and calves) on another day.
-                This split is popular because it allows you to focus on specific
-                muscle groups without overworking them.
+                Push exercises are a type of strength training that involves pushing against resistance
+                in a horizontal or vertical direction using the upper body muscles. These exercises primarily
+                work the chest, shoulders, and triceps, but also engage other muscle groups like the back,
+                core, and legs as stabilizers.
               </Text>
             </Stack>
             <Button
@@ -80,25 +80,16 @@ const WorkoutPlan: NextPage = () => {
                 <Heading>Exercises</Heading>
               </ModalHeader>
               <ModalBody>
-                <Text>
-                  Day 1: Upper Body Warm up: 10 minutes on the rowing machine
-                  Bench press: 4 sets of 8 reps Bent-over rows: 4 sets of 10
-                  reps Seated military press: 3 sets of 12 reps Pull-ups: 3 sets
-                  of 10 reps Bicep curls: 3 sets of 12 reps Tricep extensions: 3
-                  sets of 12 reps Day 2: Lower Body Warm up: 10 minutes on the
-                  stationary bike Squats: 4 sets of 8 reps Romanian deadlifts: 4
-                  sets of 10 reps Leg press: 3 sets of 12 reps Calf raises: 3
-                  sets of 15 reps Plank: 3 sets of 60 seconds Bicycle crunches:
-                  3 sets of 20 reps Day 3: Rest Day 4: Upper Body Warm up: 10
-                  minutes on the elliptical machine Incline bench press: 4 sets
-                  of 8 reps Pull-downs: 4 sets of 10 reps Seated dumbbell press:
-                  3 sets of 12 reps Dumbbell rows: 3 sets of 12 reps Hammer
-                  curls: 3 sets of 12 reps Skull crushers: 3 sets of 12 reps Day
-                  5: Lower Body Warm up: 10 minutes on the stair climber
-                  Deadlifts: 4 sets of 8 reps Lunges: 4 sets of 10 reps Leg
-                  curls: 3 sets of 12 reps Leg extensions: 3 sets of 12 reps
-                  Plank: 3 sets of 60 seconds Bicycle crunches: 3 sets of 20
-                  reps Day 6-7: Rest
+                <Text py="5">
+                  <Checkbox defaultChecked>Barbell/Dumbbell Bench Press</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Incline Barbell/Dumbbell Bench Press</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Tricep Extensions/Pushdowns</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Dips</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Push Up</Checkbox>
                 </Text>
               </ModalBody>
               <ModalFooter>
@@ -117,22 +108,18 @@ const WorkoutPlan: NextPage = () => {
           </Modal>
         </Card>
 
-        {/*Push Pull Legs*/}
+        {/*Pull*/}
         <Card maxW="sm" height={500}>
           <CardBody textAlign="center">
             <Stack my="6" spacing="2">
               <Heading size="md" textAlign="center">
-                Push Pull Legs
+                Pull
               </Heading>
               <Text textAlign="center">
-                This workout split involves dividing your training into three
-                main sessions: push, pull, and legs. On push days, you would
-                train muscles involved in pushing exercises, such as chest,
-                triceps, and shoulders. On pull days, you would train muscles
-                involved in pulling exercises, such as back and biceps. On leg
-                days, you would train muscles in your lower body. This split is
-                popular because it allows you to train specific muscle groups
-                while still giving your body enough rest.
+                Pull exercises are a type of strength training that involve pulling resistance towards the body,
+                typically using the muscles of the back, biceps, and forearms. These exercises target the muscles
+                used for pulling or rowing movements, such as the latissimus dorsi, rhomboids, and posterior deltoids.
+                Common examples of pull exercises include pull-ups, rows, and curls.
               </Text>
             </Stack>
             <Button variant="solid" colorScheme="red" onClick={item2onOpen}>
@@ -147,27 +134,16 @@ const WorkoutPlan: NextPage = () => {
                 <Heading>Exercises</Heading>
               </ModalHeader>
               <ModalBody>
-                <Text>
-                  Monday - Push Barbell bench press - 4 sets of 6-8 reps Incline
-                  dumbbell press - 3 sets of 8-10 reps Shoulder press - 4 sets
-                  of 6-8 reps Lateral raises - 3 sets of 10-12 reps Tricep
-                  pushdowns - 3 sets of 10-12 reps Skull crushers - 3 sets of
-                  10-12 reps Tuesday - Pull Deadlifts - 4 sets of 6-8 reps
-                  Pull-ups - 3 sets of 8-10 reps Seated rows - 4 sets of 8-10
-                  reps Dumbbell curls - 3 sets of 10-12 reps Hammer curls - 3
-                  sets of 10-12 reps Face pulls - 3 sets of 12-15 reps Wednesday
-                  - Rest Thursday - Legs Squats - 4 sets of 6-8 reps Romanian
-                  deadlifts - 3 sets of 8-10 reps Leg press - 4 sets of 8-10
-                  reps Leg curls - 3 sets of 10-12 reps Calf raises - 3 sets of
-                  12-15 reps Friday - Push Incline bench press - 4 sets of 6-8
-                  reps Dumbbell bench press - 3 sets of 8-10 reps Arnold press -
-                  4 sets of 6-8 reps Front raises - 3 sets of 10-12 reps Tricep
-                  overhead extensions - 3 sets of 10-12 reps Cable flyes - 3
-                  sets of 10-12 reps Saturday - Pull Barbell rows - 4 sets of
-                  6-8 reps Chin-ups - 3 sets of 8-10 reps Lat pulldowns - 4 sets
-                  of 8-10 reps Preacher curls - 3 sets of 10-12 reps Cable curls
-                  - 3 sets of 10-12 reps Reverse flyes - 3 sets of 12-15 reps
-                  Sunday - Rest
+                <Text py="5">
+                <Checkbox defaultChecked>Deadlift</Checkbox>
+                <br /><br />
+                  <Checkbox defaultChecked>Pull/Chin Ups</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Lat-Pull Down</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Rows</Checkbox>
+                  <br /><br />
+                  <Checkbox defaultChecked>Bicep Curl</Checkbox>
                 </Text>
               </ModalBody>
               <ModalFooter>
@@ -186,23 +162,21 @@ const WorkoutPlan: NextPage = () => {
           </Modal>
         </Card>
 
-        {/* Bro Split*/}
+        {/*Legs*/}
         <Card maxW="sm" height={500}>
           <CardBody textAlign="center">
             <Stack my="6" spacing="2">
               <Heading textAlign="center" size="md">
-                Bro Split
+                Legs
               </Heading>
               <Text textAlign="center">
-                The term "bro split" is sometimes used to describe a workout
-                split that involves training each muscle group once per week.
-                For example, you might do chest on Monday, back on Tuesday,
-                shoulders on Wednesday, legs on Thursday, and arms on Friday.
-                This split is popular among bodybuilders who are looking to
-                build muscle size and definition in specific areas. However, it
-                can be less effective for overall strength and fitness gains, as
-                it may not allow for enough frequency and volume for each muscle
-                group.
+              Leg exercises are a type of strength training that focus on the muscles of the
+              lower body, including the quadriceps, hamstrings, glutes, and calves. These
+              exercises can be classified into two main categories: compound exercises, which
+              involve multiple joints and muscle groups, and isolation exercises, which target
+              specific muscles. Some common leg exercises include squats, lunges, deadlifts,
+              leg press, and calf raises.
+
               </Text>
             </Stack>
             <Button variant="solid" colorScheme="red" onClick={item3onOpen}>
@@ -217,25 +191,17 @@ const WorkoutPlan: NextPage = () => {
                 <Heading>Exercises</Heading>
               </ModalHeader>
               <ModalBody>
-                <Text>
-                  Monday - Chest Barbell Bench Press: 4 sets x 8-12 reps
-                  Dumbbell Flyes: 3 sets x 10-12 reps Incline Dumbbell Press: 3
-                  sets x 8-12 reps Cable Crossovers: 3 sets x 10-12 reps Tuesday
-                  - Back Deadlift: 4 sets x 6-8 reps Wide-Grip Pull-Ups: 3 sets
-                  x 10-12 reps Seated Rows: 3 sets x 10-12 reps One-Arm Dumbbell
-                  Rows: 3 sets x 10-12 reps Wednesday - Rest Thursday - Legs
-                  Barbell Squats: 4 sets x 8-10 reps Leg Press: 3 sets x 10-12
-                  reps Leg Extensions: 3 sets x 10-12 reps Lying Leg Curls: 3
-                  sets x 10-12 reps Standing Calf Raises: 3 sets x 10-12 reps
-                  Friday - Shoulders Seated Dumbbell Press: 4 sets x 8-10 reps
-                  Front Dumbbell Raises: 3 sets x 10-12 reps Side Lateral
-                  Raises: 3 sets x 10-12 reps Reverse Flyes: 3 sets x 10-12 reps
-                  Saturday - Arms Barbell Curls: 3 sets x 10-12 reps Skull
-                  Crushers: 3 sets x 10-12 reps Preacher Curls: 3 sets x 10-12
-                  reps Cable Tricep Extensions: 3 sets x 10-12 reps Hammer
-                  Curls: 3 sets x 10-12 reps Concentration Curls: 3 sets x 10-12
-                  reps Sunday - Rest
-                </Text>
+               <Text py="5">
+                  <Checkbox defaultChecked>Barbell/Hack Squat </Checkbox>
+                  <br /><br />
+                    <Checkbox defaultChecked>Leg Press</Checkbox>
+                    <br /><br />
+                    <Checkbox defaultChecked>Leg Curl</Checkbox>
+                    <br /><br />
+                    <Checkbox defaultChecked>Leg Extension</Checkbox>
+                    <br /><br />
+                    <Checkbox defaultChecked>Calf Raises</Checkbox>
+                  </Text>
               </ModalBody>
               <ModalFooter>
                 <Button
