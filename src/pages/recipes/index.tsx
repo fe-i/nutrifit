@@ -147,13 +147,6 @@ const Recipes: NextPage = () => {
 										</ListItem>
 										<ListItem>Salt and ground black pepper</ListItem>
 									</UnorderedList>
-
-									<br></br>
-									<br></br>
-
-									<Text fontSize="30" pb={2}>
-										Directions:{" "}
-									</Text>
 								</DrawerBody>
 							</DrawerContent>
 						</Drawer>
